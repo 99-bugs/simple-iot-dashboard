@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js" type="text/javascript"></script>
+  <script src="js/app.js"></script>
+  <title>Weather dashboard</title>
+</head>
+<body>
+  <div class="container" id="app">
+    <h1><i class="material-icons medium">wb_sunny</i> Weather dashboard</h1>
+    <hr>
+    <div class="row white-text center-align">
+      <div class="col s12 m6 l4">
+        <div class="card-panel  teal darken-1">
+          <div class="large">{{weather.temperature_1}} °C</div>
+          <div>Temparture</div>
+        </div>
+      </div>
+      <div class="col s12 m6 l4">
+        <div class="card-panel lime darken-1">
+          <div class="large">{{weather.relative_humidity_3}} %</div>
+          <div>Humidity</div>
+        </div>
+      </div>
+      <div class="col s12 m6 l4">
+        <div class="card-panel brown darken-1">
+          <div class="large">{{weather.barometric_pressure_2}} hPa</div>
+          <div>Pressure</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
