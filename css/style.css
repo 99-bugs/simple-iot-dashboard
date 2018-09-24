@@ -1,4 +1,7 @@
 
+/* Text in an element with a large class
+   should appear with a font size that is
+   4 times larger than normal text */
 .large{
-    font-size: 5em;
+    font-size: 4rem;
 }
