@@ -8,9 +8,12 @@ document.addEventListener("DOMContentLoaded",function(){
   const app = new Vue({
     el: '#app',         // the element on which the Vue app must be build on
     data: {             // the application contains some data
-      weather: {}       // some weather information, but we do not have any values yet
+      weather: {},      // some weather information, but we do not have any values yet
+      lastUpdate: 0
     }
   });
+
+  Vue.use(vueMoment);
 
   // MQTT client to get weather information and real-time updates
 
