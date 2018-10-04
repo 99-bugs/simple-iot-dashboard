@@ -1,0 +1,20 @@
+[
+  {
+    "name": "hello",
+    "value": "12",
+    "unit": "°C",
+    "topic": "workshop/temperature"
+  },
+  {
+    "name": "foo",
+    "value": "12",
+    "unit": "%",
+    "topic": "workshop/foo"
+  },
+  {
+    "name": "bar",
+    "value": "12",
+    "unit": "hPa",
+    "topic": "workshop/bar"
+  }
+]  

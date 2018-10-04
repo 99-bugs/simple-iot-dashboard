@@ -2,27 +2,13 @@ let app = null;
 
 const topic = 'workshop/+'
 const mqttServer = 'mqtt://192.168.1.158:9001'
-const sensorList = [
-        {
-          name: "hello",
-          value: "12",
-          unit: '°C',
-          topic: 'workshop/temperature'
-        },
-        {
-          name: "foo",
-          value: "12",
-          unit: '%',
-          topic: 'workshop/foo'
-        },
-        {
-          name: "bar",
-          value: "12",
-          unit: "hPa",
-          topic: 'workshop/bar'
-        }
-      ]  
+const api_url = 'sensors.php'
 
+axios.get(api_url)
+  .then((response) => {
+    app.$data.sensors = response.data;
+  }) 
+ 
 // Wait for the document to be fully loaded so that all 
 // context is available before running any code
 
@@ -34,7 +20,7 @@ document.addEventListener("DOMContentLoaded",function(){
   app = new Vue({
     el: '#app',         // the element on which the Vue app must be build on
     data: {             // the application contains some data
-      sensors: sensorList 
+      sensors: [] 
     },
     mounted () {
       this.$mqtt.subscribe(topic)       // subscribe to the information topic on MQTT
@@ -43,7 +29,9 @@ document.addEventListener("DOMContentLoaded",function(){
       [topic]: function (data, topic){        // when a message arrives on our topic
         let message = parseData(data)
         let sensor = findSensor(topic)
-        updateSensorValue(sensor, message)
+        if(sensor){
+          updateSensorValue(sensor, message)
+        }
       }
     }
   });
