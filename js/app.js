@@ -1,7 +1,5 @@
-const configFile = 'sensors.json';
-
 document.addEventListener('DOMContentLoaded', () => {
-  axios.get(configFile).then((response) => {
+  axios.get('sensors.json').then((response) => {
     const config = response.data;
     Vue.use(VueMqtt.default, `mqtt://${config.mqtt.broker}:${config.mqtt.port}`)
     let app = new Vue({
